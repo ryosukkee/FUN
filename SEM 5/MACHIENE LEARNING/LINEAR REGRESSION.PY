@@ -27,7 +27,6 @@ for i in range(0,n):
     sumx += temp
 
 w1 = sumxy/sumx
-
 w0 = my - w1*mx
 
 print(f"The linear regression equation is: y = {w1}x + {w0}")
