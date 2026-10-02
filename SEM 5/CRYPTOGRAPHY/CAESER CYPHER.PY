@@ -27,17 +27,37 @@ lookup_table = [
     ("Z", 25)
 ]
 
-temp = input("Enter the plaintext: ")
-plaintext = temp.upper()
-key = int(input("Enter the key: "))
+def encryption():
+    temp = input("Enter the plaintext: ")
+    plaintext = temp.upper()
+    key = int(input("Enter the key: "))
 
-ciphertext = ""
+    ciphertext = ""
 
-for char in plaintext:
-    for a, b in lookup_table:
-        if char == a:
-            index = (b + key) % 26
-            ciphertext += lookup_table[index][0]
-            break
+    for char in plaintext:
+        for a, b in lookup_table:
+            if char == a:
+                index = (b + key) % 26
+                ciphertext += lookup_table[index][0]
+                break
 
-print(f"\nCiphertext: {ciphertext}")
+    print(f"\nCiphertext: {ciphertext}")
+
+def decryption():
+    temp = input("Enter the plaintext: ")
+    ciphertext = temp.upper()
+    key = int(input("Enter the key: "))
+    
+    plaintext = ""
+
+    for char in ciphertext:
+        for a,b in lookup_table:
+            if char == a:
+                index = (b-key) % 26
+                plaintext += lookup_table[index][0]
+                break
+
+    print(f"\nCiphertext: {plaintext}")
+
+encryption()
+decryption()
